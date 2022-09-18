@@ -8,6 +8,10 @@ module.exports = {
     fontFamily: {
       sans: ['Inter', 'sans-serif']
     },
+    screens: {
+      'mm': '280px',
+      'sm': '660px',
+    },
     extend: {
       backgroundImage: {
         galaxy: "url('/background-galaxy.png')",

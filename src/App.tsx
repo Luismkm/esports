@@ -11,6 +11,7 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import "./styles.css";
 
 interface Game {
   id: string
@@ -36,20 +37,37 @@ function App() {
   return (
     <div className="max-w-[1344px] mx-auto flex flex-col items-center my-20">
       <img src={logoImg} alt="" />
-      <h1 className="text-6xl text-white font-black mt-20">
+      <h1 className="text-2xl sm:text-4xl lg:text-6xl text-white font-black mt-20 pb-20">
         Seu <span className="bg-nlw-gradient bg-clip-text text-transparent">duo</span> está aqui.
       </h1>
-      <div className="grid grid-cols-6 gap-6 mt-16 z-0">
       <Swiper
-        slidesPerView={6}
+        slidesPerView={2}
         spaceBetween={30}
         freeMode={true}
+        breakpoints={{
+          420: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+          },
+          600: {
+            slidesPerView: 4,
+            spaceBetween: 10,
+          },
+          980: {
+            slidesPerView: 5,
+            spaceBetween: 10,
+          },
+          1024: {
+            slidesPerView: 6,
+            spaceBetween: 10,
+          },
+        }}
         modules={[FreeMode, Pagination]}
-        className="mySwiper !w-[1344px]"
+        className="mySwiper w-[1344px] z-0"
       >
         {games.map(game => {
           return (
-            <SwiperSlide className="flex">
+            <SwiperSlide key={game.id} className="flex w-[268px]">
               <GameBanner
                 key={game.id}
                 bannerUrl={game.bannerUrl} 
@@ -60,7 +78,6 @@ function App() {
           )
         })}
         </Swiper>
-      </div>
       <Dialog.Root>
         <CreateAdBanner />
         <CreateAdModal />
