@@ -46,11 +46,11 @@ export function CreateAdModal() {
   return (
     <Dialog.Portal>
       <Dialog.Overlay className="bg-black/60 inset-0 fixed" />
-      <Dialog.Content className="fixed bg-[#2A2634] py-8 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 sm:rounded-lg mm:h-[100vh] mm:w-screen mi:w-[480px] shadow-lg shadow-black/25">
-        <Dialog.Title className="text-3xl font-black">
+      <Dialog.Content className="fixed bg-[#2A2634] py-4 px-3 mi:py-8 mi:px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 sm:rounded-lg nn:h-[100vh] nn:w-screen mi:w-[480px] shadow-lg shadow-black/25 overflow-scroll">
+        <Dialog.Title className="text-xl mm:text-3xl font-black">
           Publique um anúncio
         </Dialog.Title>
-        <form onSubmit={handleCreateAd} className="mt-8 flex flex-col gap-4">
+        <form onSubmit={handleCreateAd} className="mt-8 flex flex-col gap-4 text-sm sm:text- ">
           <div className="flex flex-col gap-2">
             <label htmlFor="game" className="font-semibold">
               Qual o game?
@@ -58,7 +58,7 @@ export function CreateAdModal() {
             <select 
               id="game"
               name="game"
-              className="bg-zinc-900 py-3 px-4 rounded text-sm placeholder:text-zinc-500 appearance-none"
+              className="bg-zinc-900 py-3 px-2 mi:px-4 rounded text-sm sm:text-sm appearance-none"
               defaultValue=""
             >
               <option disabled value="">Selecione o game que deseja jogar</option>
@@ -72,8 +72,8 @@ export function CreateAdModal() {
             <label htmlFor="name">Seu nome (ou nickname)</label>
             <Input name="name" id="name" placeholder="Como te chamam dentro do game?" />
           </div>
-          <div className="grid grid-cols-2 gap-6">
-            <div className="flex flex-col gap-2">
+          <div className="grid mm:grid-cols-2 gap-4">
+            <div className="flex flex-col gap-2 max-w-[180px]">
               <label htmlFor="yearsPlaying">Joga há quantos anos?</label>
               <Input
                 name="yearsPlaying"
@@ -82,17 +82,17 @@ export function CreateAdModal() {
                 placeholder="Tudo bem ser ZERO"
               />
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 max-w-[256px]">
               <label htmlFor="discord">Qual seu Discord?</label>
               <Input name="discord" id="discord" type="text" placeholder="Usuario#0000" />
             </div>
           </div>
-          <div className="flex gap-6">
-            <div className="flex flex-col gap-2">
+          <div className="flex flex-col mm:flex-row gap-6">
+            <div className="flex flex-col gap-2 max-w-[250px]">
               <label htmlFor="weekDays">Quando costuma jogar?</label>
                 <ToggleGroup.Root 
                   type="multiple" 
-                  className="grid grid-cols-4 gap-2"
+                  className="grid grid-cols-7 mm:grid-cols-4 gap-2"
                   value={weekDays}
                   onValueChange={setWeekDays}
                 >
@@ -149,7 +149,7 @@ export function CreateAdModal() {
             </div>
             <div className="flex flex-col gap-2 flex-1">
               <label htmlFor="hourStart">Qual horário do dia?</label>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-2 last:w-[200px]">
                 <Input name="hourStart" id="hourStart" type="time" placeholder="De" />
                 <Input name="hourEnd" id="hourEnd" type="time" placeholder="Até" />
               </div>
@@ -173,7 +173,7 @@ export function CreateAdModal() {
             </Checkbox.Root>
             Costumo me conectar no chat de voz
           </label>
-          <footer className="mt-4 flex justify-end gap-4">
+          <footer className="mt-4 flex justify-center md:justify-end gap-4">
             <Dialog.Close
               type="button"
               className="bg-zinc-500 px-5 h-12 rounded-sm font-semibold hover:bg-zinc-600"

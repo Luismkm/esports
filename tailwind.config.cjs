@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   content: [
     './src/**/*.tsx',
@@ -9,9 +10,10 @@ module.exports = {
       sans: ['Inter', 'sans-serif']
     },
     screens: {
-      'mm': '280px',
+      'nn': '280px',
+      'mm': '400px',
       'mi': '428px',
-      'sm': '660px',
+      ...defaultTheme.screens,
     },
     extend: {
       backgroundImage: {
